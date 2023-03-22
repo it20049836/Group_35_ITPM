@@ -12,7 +12,7 @@ const volunteerSchema = new Schema({
         type: String,
         required: true
     },
-    vehicleNO:{
+    vehicleNo:{
         type: String,
         required: true
     },

@@ -77,7 +77,7 @@ const updateVolunteerJob = async (req,res) => {
         return res.status(400).json({error:'No Such Workout'})
     }
 
-    res.status(200).json(workout)
+    res.status(200).json(volunteerJob)
 
 }
 
