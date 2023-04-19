@@ -1,29 +1,34 @@
-import { useEffect, useState } from "react"
+import { useEffect } from 'react'
+import { useAdminContext } from "../hooks/useAdminContext"
+
+//components
+import AdminDetails from '../components/AdminDetails'
+import AdminForm from '../components/AdminForm'
 
 const Home = () => {
-    const [admin, setAdmin] = useState(null)
+    const {admin, dispatch} = useAdminContext()
 
     useEffect(() => {
-
         const fetchAdmin = async () => {
-            const response = await fetach('/admin/approves')
+            const response = await fetch('/admin/approves')
             const json = await response.json()
 
             if (response.ok) {
-                setAdmin(json)
+                dispatch({type: 'SET_ORGANIZATIONS', payload: json})
             }
         }
 
         fetchAdmin()
-    }, []) 
+    }, [dispatch]) 
 
     return (
         <div className="home">
             <div className="admin">
                 {admin && admin.map((admin) => (
-                    <p key={admin._id}>{admin.title}</p>
+                    <AdminDetails key={admin._id} admin={admin}/>
                 ))}
             </div>
+            <AdminForm />
         </div>
     )
 }
