@@ -2,8 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const volunteerSchema = new Schema({
-
+const orgAidSchema = new Schema({
     orgId:{
         type:String,
         required:true
@@ -63,28 +62,8 @@ const volunteerSchema = new Schema({
     donorLocation:{
         type:String,
         required:true
-    },
-    volunteerId:{
-        type:String,
-        require: true
-    },
-    volunteerName: {
-        type: String,
-        required: true
-    },
-    NIC: {
-        type: String,
-        required: true
-    },
-    vehicleNo:{
-        type: String,
-        required: true
-    },
-    volunteerTelephoneNo:{
-        type: Number,
-        required: true
     }
 },  {timestamps:true})
 
 
-module.exports = mongoose.model('Volunteer', volunteerSchema)
+module.exports = mongoose.model('provideDonation', orgAidSchema)

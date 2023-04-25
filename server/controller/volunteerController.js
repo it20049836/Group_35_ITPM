@@ -9,7 +9,11 @@ const getVolunteerJobs = async(req,res) => {
     res.status(200).json(volunteerJob)
 
 }
-
+const getOneVolunteerJobs = async (req, res) => { 
+    const {volunteerid} = req.params; 
+    const oneVolunteerJobs = await VolunteerJob.find({ "volunteerId": volunteerid}).sort({ createdAt: -1 }); 
+    res.status(200).json(oneVolunteerJobs); 
+};
 
 // get a single volunteer job
 const getVolunteerJob = async(req,res) => {
@@ -29,11 +33,11 @@ const getVolunteerJob = async(req,res) => {
 
 // create a new volunteerJob
 const createVolunteerJob = async (req,res) => {
-    const{volunteerName,NIC,vehicleNo,telephoneNo} = req.body
+    const{orgId,orgName,requestTitle,population,dueDate,orgOtherDetails,orgLocation,orgTelephone,donorId,donorName,donationSize,deliveryMethod,donorTelephone,donorOtherDetails,donorLocation,volunteerId,volunteerName,NIC,vehicleNo,volunteerTelephoneNo} = req.body
 
     //add doc to db
     try{
-        const volunteerJob = await VolunteerJob.create({volunteerName,NIC,vehicleNo,telephoneNo})
+        const volunteerJob = await VolunteerJob.create({orgId,orgName,requestTitle,population,dueDate,orgOtherDetails,orgLocation,orgTelephone,donorId,donorName,donationSize,deliveryMethod,donorTelephone,donorOtherDetails,donorLocation,volunteerId,volunteerName,NIC,vehicleNo,volunteerTelephoneNo})
         res.status(200).json(volunteerJob)
     } catch (error) {
         res.status(400).json({error:error.message})
@@ -83,6 +87,7 @@ const updateVolunteerJob = async (req,res) => {
 
 module.exports = {
     getVolunteerJob,
+    getOneVolunteerJobs,
     getVolunteerJobs,
     createVolunteerJob,
     deleteVolunteerJob,
