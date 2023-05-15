@@ -2,16 +2,8 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const adminSchema = new Schema({
-
-    // firstName: {
-    //     type: String,
-    //     required: true
-    // },
-    // lastName: {
-    //     type: String,
-    //     required: true
-    // },
+const adminOrgSchema = new Schema({
+    
     organizationName: {
         type: String,
         required: true
@@ -20,22 +12,14 @@ const adminSchema = new Schema({
         type: String,
         required: true
     },
-    address: {
-        type: String,
-        required: true
-    },
-    telephoneNo: {
-        type: Number,
-        required: true
-    },
     email: {
         type: String,
         required: true
     },
-    // role: {
-    //     type: String,
-    //     required: true
-    // },
+    role: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
@@ -47,4 +31,4 @@ const adminSchema = new Schema({
 
 }, {timestamps:true})
 
-module.exports = mongoose.model('Admin',adminSchema)
+module.exports = mongoose.model('AdminOrg',adminOrgSchema)
