@@ -78,7 +78,7 @@ const toggleDeclineDelivery =  async (volunteerJob) =>{
           donorLocation:volunteerJob.donorLocation
   }
 
-  //Send the create request
+  //Send the recreate donation record request
   const response = await axios.post("http://localhost:4000/donor",repostDonation);
   console.log(response); 
 
