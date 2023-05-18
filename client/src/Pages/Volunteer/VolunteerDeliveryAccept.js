@@ -87,7 +87,7 @@ const toggleAcceptDelivery = (deliveryRequest) =>{
     console.log(deliveryAccept);
 }
 
-//Handle Update Field Change
+//Handle Add Field Change
 const handleAddFieldChange = (e) =>{
   const {value,name} = e.target
 
