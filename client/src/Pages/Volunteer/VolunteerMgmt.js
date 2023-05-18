@@ -39,6 +39,10 @@ useEffect(() =>{
     fetchVolunteerJobs();
 },[]);
 
+useEffect(() => {
+  console.log(updateDelivery);
+}, [updateDelivery]);
+
 // Function to fetch Delivery Jobs of a Single Volunteer
 const fetchVolunteerJobs = async () => {
 
@@ -78,7 +82,7 @@ const toggleDeclineDelivery =  async (volunteerJob) =>{
           donorLocation:volunteerJob.donorLocation
   }
 
-  //Send the recreate donation record request
+  //Send the create request
   const response = await axios.post("http://localhost:4000/donor",repostDonation);
   console.log(response); 
 
@@ -98,7 +102,7 @@ const toggleUpdateDelivery = (volunteerJob) =>{
     orgName:volunteerJob.orgName,
     requestTitle:volunteerJob.requestTitle,
     population:volunteerJob.population,
-    dueDate:volunteerJob.duedate,
+    dueDate:volunteerJob.dueDate,
     orgOtherDetails:volunteerJob.orgOtherDetails,
     orgLocation:volunteerJob.orgLocation,
     orgTelephone:volunteerJob.orgTelephone,
@@ -138,7 +142,7 @@ const updateDeliveryJob = async (e) => {
     orgName:updateDelivery.orgName,
     requestTitle:updateDelivery.requestTitle,
     population:updateDelivery.population,
-    dueDate:updateDelivery.duedate,
+    dueDate:updateDelivery.dueDate,
     orgOtherDetails:updateDelivery.orgOtherDetails,
     orgLocation:updateDelivery.orgLocation,
     orgTelephone:updateDelivery.orgTelephone,
@@ -189,8 +193,11 @@ const updateDeliveryJob = async (e) => {
 };
 
 return (
-    <div className="home">
+  <div><h2 id="page-title">Volunteer Job Management</h2>
+    <div className="home ">
+      
         <div className="workouts">
+        <h3>Accepted Volunteer Jobs</h3>
           {volunteerJobs && volunteerJobs.map(volunteerJob => (
             <div className="workout-details" key={volunteerJob._id}>
                 <h4>{volunteerJob.requestTitle}</h4>
@@ -261,6 +268,7 @@ return (
       <button>Update Delivery Job</button>
     </form>
         
+    </div>
     </div>
         )
 

@@ -6,6 +6,14 @@ import Navbar from './Components/Navbar';
 //import Happy from './Pages/Happy';
 import VolunteerDeliveryAccept from './Pages/Volunteer/VolunteerDeliveryAccept';
 import VolunteerMgmt from './Pages/Volunteer/VolunteerMgmt';
+import VolunteerHome from './Pages/Volunteer/VolunteerHomePage'
+import FoodAidRequest from './Pages/Organization/FoodAidRequestPage';
+import OrganizationMgmt from './Pages/Organization/OrganizationMgmtPage';
+import OrganizationHome from './Pages/Organization/OrganizationHomePage';
+import DonorAcceptRequest from './Pages/Donor/DonorAcceptRequestPage';
+import DonorMgmt from './Pages/Donor/DonorMgmtPage';
+import DonorHome from './Pages/Donor/DonorHomePage';
+// import FoodAidRequest from './Pages/Organization/FoodAidRequestPage';
 
 function App() {
   return (
@@ -19,10 +27,37 @@ function App() {
                   element={<VolunteerDeliveryAccept/>}
                 />
                 <Route
-                  path="/"
+                  path="/volunteer-mgmt"
                   element={<VolunteerMgmt/>}
                 />
-
+                <Route
+                  path="/volunteer-home"
+                  element={<VolunteerHome/>}
+                />
+                <Route
+                  path="/foodaidrequest"
+                  element={<FoodAidRequest/>}
+                />
+                <Route
+                  path="/organization-mgmt"
+                  element={<OrganizationMgmt/>}
+                />
+                <Route
+                  path="/organization-home"
+                  element={<OrganizationHome/>}
+                />
+                <Route
+                  path="/donor-accept-request"
+                  element={<DonorAcceptRequest/>}
+                />
+                <Route
+                  path="/donor-mgmt"
+                  element={<DonorMgmt/>}
+                />
+                <Route
+                  path="/donor-home"
+                  element={<DonorHome/>}
+                />
             </Routes>
         </div>
       </BrowserRouter>

@@ -87,7 +87,7 @@ const toggleAcceptDelivery = (deliveryRequest) =>{
     console.log(deliveryAccept);
 }
 
-//Handle Add Field Change
+//Handle Update Field Change
 const handleAddFieldChange = (e) =>{
   const {value,name} = e.target
 
@@ -166,8 +166,11 @@ const createDeliveryJob = async (e) => {
 }
 
   return (
+    <div>
+      <h2 id="page-title">Volunteer Job Acceptance</h2>
     <div className="home">
         <div className="workouts">
+        <h3>Volunteer Requests</h3>
           {deliveryRequests && deliveryRequests.map(deliveryRequest => (
             <div className="workout-details" key={deliveryRequest._id}>
                 <h4>{deliveryRequest.requestTitle}</h4>
@@ -230,6 +233,7 @@ const createDeliveryJob = async (e) => {
       <button>Add Workout</button>
     </form>
         
+    </div>
     </div>
         )
 
