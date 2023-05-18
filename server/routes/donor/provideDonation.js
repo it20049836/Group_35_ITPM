@@ -27,7 +27,7 @@ router.post('/', createProvideDonation)
 router.delete('/:id', deleteProvideDonation)
 
 //Update a Org job
-router.put('/:id',updateProvideDonation)
+router.patch('/:id',updateProvideDonation)
 
 
 module.exports = router;

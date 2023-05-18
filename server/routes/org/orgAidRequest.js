@@ -23,7 +23,7 @@ router.post('/', createOrgJob)
 router.delete('/:id', deleteOrgJob)
 
 //Update a Org job
-router.put('/:id',updateOrgJob)
+router.patch('/:id',updateOrgJob)
 
 
 
