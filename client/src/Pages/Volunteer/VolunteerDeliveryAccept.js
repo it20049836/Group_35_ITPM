@@ -132,9 +132,14 @@ const createDeliveryJob = async (e) => {
 
   //Delete Related Donor Record
   const deleteResponse = await axios.delete(`http://localhost:4000/donor/${deliveryAccept._id}`);
-  console.log(deleteResponse);
+  
+  if(deleteResponse){
+  
+    console.log(deleteResponse);
+    alert("Volunteer Job Created");
 
   //Refresh Delivery Requests List
+
   fetchDeliveryRequests();
 
   //Clear Details From State
@@ -162,6 +167,7 @@ const createDeliveryJob = async (e) => {
     volunteerTelephoneNo:""
     }
     );
+  }
 
 }
 
@@ -204,6 +210,7 @@ const createDeliveryJob = async (e) => {
               name="volunteerName"
               onChange={handleAddFieldChange}
               value={deliveryAccept.volunteerName}
+              required
             />
 
             <label>NIC No:</label>
@@ -212,6 +219,7 @@ const createDeliveryJob = async (e) => {
               name="NIC"
               onChange={handleAddFieldChange}
               value={deliveryAccept.NIC}
+              required
             />
 
             <label>Vehicle No:</label>
@@ -220,6 +228,7 @@ const createDeliveryJob = async (e) => {
               name="vehicleNo"
               onChange={handleAddFieldChange}
               value={deliveryAccept.vehicleNo}
+              required
             />
 
             <label>Telephone No:</label>
@@ -228,6 +237,7 @@ const createDeliveryJob = async (e) => {
               name="volunteerTelephoneNo"
               onChange={handleAddFieldChange}
               value={deliveryAccept.volunteerTelephoneNo}
+              required
             />
 
       <button>Add Workout</button>

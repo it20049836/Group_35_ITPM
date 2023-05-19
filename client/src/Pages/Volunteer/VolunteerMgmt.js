@@ -84,12 +84,16 @@ const toggleDeclineDelivery =  async (volunteerJob) =>{
 
   //Send the create request
   const response = await axios.post("http://localhost:4000/donor",repostDonation);
-  console.log(response); 
-
-    }
   
+  if(response){
+  console.log(response);
+  alert("Volunteer Job Deleted");
   //Update the Delivery Jobs List
   fetchVolunteerJobs();
+  }
+    }
+  
+  
   
 };
 
@@ -161,7 +165,11 @@ const updateDeliveryJob = async (e) => {
 
     //Send the update request
     const response = await axios.patch(`http://localhost:4000/volunteer/delivery-jobs/${updateDelivery._id}`,deliveryJobUpdateDetails)
+   
+   
+   if(response){
     console.log(response);
+    alert("Volunteer Details Updated")
 
     //Update the Delivery Jobs List
     fetchVolunteerJobs();
@@ -190,6 +198,8 @@ const updateDeliveryJob = async (e) => {
       vehicleNo:"",
       volunteerTelephoneNo:""
     });
+
+  }
 };
 
 return (
@@ -239,6 +249,7 @@ return (
               name="volunteerName"
               onChange={handleUpdateFieldChange}
               value={updateDelivery.volunteerName}
+              required
             />
 
             <label>NIC No:</label>
@@ -247,6 +258,7 @@ return (
               name="NIC"
               onChange={handleUpdateFieldChange}
               value={updateDelivery.NIC}
+              required
             />
 
             <label>Vehicle No:</label>
@@ -255,6 +267,7 @@ return (
               name="vehicleNo"
               onChange={handleUpdateFieldChange}
               value={updateDelivery.vehicleNo}
+              required
             />
 
             <label>Telephone No:</label>
@@ -263,6 +276,7 @@ return (
               name="volunteerTelephoneNo"
               onChange={handleUpdateFieldChange}
               value={updateDelivery.volunteerTelephoneNo}
+              required
             />
 
       <button>Update Delivery Job</button>
