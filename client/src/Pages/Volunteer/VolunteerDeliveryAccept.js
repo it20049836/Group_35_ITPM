@@ -87,7 +87,7 @@ const toggleAcceptDelivery = (deliveryRequest) =>{
     console.log(deliveryAccept);
 }
 
-//Handle Add Field Change
+//Handle Update Field Change
 const handleAddFieldChange = (e) =>{
   const {value,name} = e.target
 
@@ -132,9 +132,14 @@ const createDeliveryJob = async (e) => {
 
   //Delete Related Donor Record
   const deleteResponse = await axios.delete(`http://localhost:4000/donor/${deliveryAccept._id}`);
-  console.log(deleteResponse);
+  
+  if(deleteResponse){
+  
+    console.log(deleteResponse);
+    alert("Volunteer Job Created");
 
   //Refresh Delivery Requests List
+
   fetchDeliveryRequests();
 
   //Clear Details From State
@@ -162,12 +167,16 @@ const createDeliveryJob = async (e) => {
     volunteerTelephoneNo:""
     }
     );
+  }
 
 }
 
   return (
+    <div>
+      <h2 id="page-title">Volunteer Job Acceptance</h2>
     <div className="home">
         <div className="workouts">
+        <h3>Volunteer Requests</h3>
           {deliveryRequests && deliveryRequests.map(deliveryRequest => (
             <div className="workout-details" key={deliveryRequest._id}>
                 <h4>{deliveryRequest.requestTitle}</h4>
@@ -201,6 +210,7 @@ const createDeliveryJob = async (e) => {
               name="volunteerName"
               onChange={handleAddFieldChange}
               value={deliveryAccept.volunteerName}
+              required
             />
 
             <label>NIC No:</label>
@@ -209,6 +219,7 @@ const createDeliveryJob = async (e) => {
               name="NIC"
               onChange={handleAddFieldChange}
               value={deliveryAccept.NIC}
+              required
             />
 
             <label>Vehicle No:</label>
@@ -217,6 +228,7 @@ const createDeliveryJob = async (e) => {
               name="vehicleNo"
               onChange={handleAddFieldChange}
               value={deliveryAccept.vehicleNo}
+              required
             />
 
             <label>Telephone No:</label>
@@ -225,11 +237,13 @@ const createDeliveryJob = async (e) => {
               name="volunteerTelephoneNo"
               onChange={handleAddFieldChange}
               value={deliveryAccept.volunteerTelephoneNo}
+              required
             />
 
       <button>Add Workout</button>
     </form>
         
+    </div>
     </div>
         )
 
