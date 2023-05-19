@@ -4,6 +4,9 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './Components/Navbar';
 //import Home from './Pages/Home';
 //import Happy from './Pages/Happy';
+import LandingPage from './Pages/Landing Pages/LandingPage';
+import Login from './Pages/Landing Pages/LoginPage'
+import Signup from './Pages/Landing Pages/SignUpPage'
 import VolunteerDeliveryAccept from './Pages/Volunteer/VolunteerDeliveryAccept';
 import VolunteerMgmt from './Pages/Volunteer/VolunteerMgmt';
 import VolunteerHome from './Pages/Volunteer/VolunteerHomePage'
@@ -22,6 +25,18 @@ function App() {
         <Navbar/>
         <div className='pages'>
             <Routes>
+                <Route
+                  path="/"
+                  element={<LandingPage/>}
+                />
+                <Route
+                  path="/login"
+                  element={<Login/>}
+                />
+                <Route
+                  path="/signup"
+                  element={<Signup/>}
+                />
                 <Route
                   path="/volunteer-delivery-accept"
                   element={<VolunteerDeliveryAccept/>}
