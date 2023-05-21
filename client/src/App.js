@@ -19,6 +19,7 @@ import DonorHome from './Pages/Donor/DonorHomePage';
 // import FoodAidRequest from './Pages/Organization/FoodAidRequestPage';
 
 function App() {
+  // add org parts
   return (
     <div className="App">
       <BrowserRouter>

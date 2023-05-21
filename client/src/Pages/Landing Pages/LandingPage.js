@@ -9,6 +9,7 @@ function LandingPage () {
        <div >
            <h2 id="page-title">Food Pals</h2>
            <div className="homepage home-margin">
+           {/* // add org parts */}
 
             <div>
                 <Link to="/login">
