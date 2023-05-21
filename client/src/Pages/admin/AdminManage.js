@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function AdminManage() {
+  // add org parts
 
   // States to Store Data
   const [adminJobs, setAdminJobs] = useState(null);

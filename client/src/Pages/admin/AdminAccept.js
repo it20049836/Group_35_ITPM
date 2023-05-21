@@ -9,6 +9,7 @@ function AdminAccept() {
   //#2 - Set the Unreigsted Organizations into a State
   //#3 - Create a UseEffect to Update Page everytime Refreshed
   //#4 - Create the Container for Unreigsted Organizations
+  // add org parts
 
 
   //States to Store Data
