@@ -16,15 +16,15 @@ The Main Functions are
 - Volunteer Deliverer Function.
 
 <b>Technologies User</b>
-Frontend - React.js
-Backend - Node.js and Express.js
-Database - MongoDB
+- Frontend : React.js
+- Backend : Node.js and Express.js
+- Database : MongoDB
 
 <b>Other Tools</b>
-Azure Boards
-Sonarqube
-Git & Github
-Selenium
+- Azure Boards
+- Sonarqube
+- Git & Github
+- Selenium
 
 <b>--------------------------Project Group Members--------------------------</b>
 
